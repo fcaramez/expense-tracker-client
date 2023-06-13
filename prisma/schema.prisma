@@ -1,8 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-    provider = "prisma-client-js"
+    provider        = "prisma-client-js"
     previewFeatures = ["jsonProtocol"]
 }
 
@@ -11,8 +8,26 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model User {
+    userId      String    @id @default(uuid())
+    income      Int
+    username    String
+    password    String
+    email       String
+    phoneNumber String
+    expenses    Expense[]
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+}
+
+model Expense {
+    expenseId  String   @id @default(uuid())
+    product    String
+    amount     Int
+    date       String
+    location   String
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    User       User?    @relation(fields: [userUserId], references: [userId])
+    userUserId String?
 }
