@@ -12,6 +12,7 @@ specifiers:
   '@types/node': ^18.16.0
   '@types/react': ^18.2.6
   '@types/react-dom': ^18.2.4
+  '@types/react-icons': ^3.0.0
   '@typescript-eslint/eslint-plugin': ^5.59.6
   '@typescript-eslint/parser': ^5.59.6
   bcrypt: ^5.1.0
@@ -23,6 +24,7 @@ specifiers:
   prisma: ^4.14.0
   react: 18.2.0
   react-dom: 18.2.0
+  react-icons: ^4.9.0
   typescript: ^5.0.4
   zod: ^3.21.4
 
@@ -39,6 +41,7 @@ dependencies:
   next: 13.4.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.9.0_react@18.2.0
   zod: 3.21.4
 
 devDependencies:
@@ -47,6 +50,7 @@ devDependencies:
   '@types/node': 18.16.18
   '@types/react': 18.2.12
   '@types/react-dom': 18.2.5
+  '@types/react-icons': 3.0.0_react@18.2.0
   '@typescript-eslint/eslint-plugin': 5.59.11_sqfi766b7p7jf53aqxvjxvblnq
   '@typescript-eslint/parser': 5.59.11_tizxnkcvjrb4cldxgwq5h3lj5u
   eslint: 8.42.0
@@ -1622,6 +1626,15 @@ packages:
       '@types/react': 18.2.12
     dev: true
 
+  /@types/react-icons/3.0.0_react@18.2.0:
+    resolution: {integrity: sha512-Vefs6LkLqF61vfV7AiAqls+vpR94q67gunhMueDznG+msAkrYgRxl7gYjNem/kZ+as2l2mNChmF1jRZzzQQtMg==}
+    deprecated: This is a stub types definition. react-icons provides its own type definitions, so you do not need this installed.
+    dependencies:
+      react-icons: 4.9.0_react@18.2.0
+    transitivePeerDependencies:
+      - react
+    dev: true
+
   /@types/react/18.2.12:
     resolution: {integrity: sha512-ndmBMLCgn38v3SntMeoJaIrO6tGHYKMEBohCUmw8HoLLQdRMOIGXfeYaBTLe2lsFaSB3MOK1VXscYFnmLtTSmw==}
     dependencies:
@@ -2334,7 +2347,7 @@ packages:
       eslint: 8.42.0
       eslint-import-resolver-node: 0.3.7
       eslint-import-resolver-typescript: 3.5.5_rsxcgit4kphd575ejwki42kur4
-      eslint-plugin-import: 2.27.5_7pvnp6jht55lmjek5ht3zhldmu
+      eslint-plugin-import: 2.27.5_b34cytzsv57k5d564pxz54jodu
       eslint-plugin-jsx-a11y: 6.7.1_eslint@8.42.0
       eslint-plugin-react: 7.32.2_eslint@8.42.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.42.0
@@ -2365,7 +2378,7 @@ packages:
       enhanced-resolve: 5.15.0
       eslint: 8.42.0
       eslint-module-utils: 2.8.0_oy7l26kpp46gv4lgacfbgddlgu
-      eslint-plugin-import: 2.27.5_7pvnp6jht55lmjek5ht3zhldmu
+      eslint-plugin-import: 2.27.5_b34cytzsv57k5d564pxz54jodu
       get-tsconfig: 4.6.0
       globby: 13.1.4
       is-core-module: 2.12.1
@@ -2375,6 +2388,35 @@ packages:
       - '@typescript-eslint/parser'
       - eslint-import-resolver-node
       - eslint-import-resolver-webpack
+      - supports-color
+    dev: true
+
+  /eslint-module-utils/2.8.0_aartv3asycikuu35yv36clal7i:
+    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
+    engines: {node: '>=4'}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint: '*'
+      eslint-import-resolver-node: '*'
+      eslint-import-resolver-typescript: '*'
+      eslint-import-resolver-webpack: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+      eslint:
+        optional: true
+      eslint-import-resolver-node:
+        optional: true
+      eslint-import-resolver-typescript:
+        optional: true
+      eslint-import-resolver-webpack:
+        optional: true
+    dependencies:
+      '@typescript-eslint/parser': 5.59.11_tizxnkcvjrb4cldxgwq5h3lj5u
+      debug: 3.2.7
+      eslint: 8.42.0
+      eslint-import-resolver-node: 0.3.7
+    transitivePeerDependencies:
       - supports-color
     dev: true
 
@@ -2408,7 +2450,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-import/2.27.5_7pvnp6jht55lmjek5ht3zhldmu:
+  /eslint-plugin-import/2.27.5_b34cytzsv57k5d564pxz54jodu:
     resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -2426,7 +2468,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.42.0
       eslint-import-resolver-node: 0.3.7
-      eslint-module-utils: 2.8.0_oy7l26kpp46gv4lgacfbgddlgu
+      eslint-module-utils: 2.8.0_aartv3asycikuu35yv36clal7i
       has: 1.0.3
       is-core-module: 2.12.1
       is-glob: 4.0.3
@@ -3726,6 +3768,13 @@ packages:
       use-sidecar: 1.1.2_amj33xoxfucvzb42rb6rqg7bp4
     dev: false
 
+  /react-icons/4.9.0_react@18.2.0:
+    resolution: {integrity: sha512-ijUnFr//ycebOqujtqtV9PFS7JjhWg0QU6ykURVHuL4cbofvRCf3f6GMn9+fBktEFQOIVZnuAYLZdiyadRQRFg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -3786,7 +3835,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /readable-stream/3.6.2:
     resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
