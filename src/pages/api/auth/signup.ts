@@ -2,6 +2,7 @@ import { type NextApiRequest, type NextApiResponse } from 'next';
 import { prisma } from '~/server/db';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
+import { type ApiResponse } from '~/utils';
 
 interface RequestBody extends NextApiRequest {
   body: {
@@ -9,12 +10,6 @@ interface RequestBody extends NextApiRequest {
     password: string;
     username: string;
   };
-}
-
-interface ApiResponse {
-  message: string;
-  data?: Record<string, any>;
-  success: boolean;
 }
 
 const SECRET = process.env.TOKEN_SECRET as string;
