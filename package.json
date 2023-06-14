@@ -15,8 +15,12 @@
     "db:test:up": "docker compose up test-db -d"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.7.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@prisma/client": "^4.14.0",
     "@t3-oss/env-nextjs": "^0.3.1",
+    "framer-motion": "^10.12.16",
     "next": "^13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
