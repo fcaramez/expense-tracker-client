@@ -1,8 +1,8 @@
 import { type NextApiRequest, type NextApiResponse } from 'next';
-import { prisma } from '~/server/db';
+import { prisma } from '@/server/db';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
-import { type ApiResponse } from '~/utils';
+import { type ApiResponse } from '@/utils';
 
 interface RequestBody extends NextApiRequest {
   body: {
@@ -14,7 +14,7 @@ interface RequestBody extends NextApiRequest {
 
 const SECRET = process.env.TOKEN_SECRET as string;
 
-export async function index(
+export default async function index(
   req: RequestBody,
   res: NextApiResponse<ApiResponse>,
 ) {
@@ -26,7 +26,11 @@ export async function index(
   }
 
   try {
-    const { username, email, password } = req.body;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const { username, email, password } = JSON.parse(req.body);
+
+    console.log(req.body);
 
     if (!username || !email || !password) {
       return res.status(400).json({
@@ -50,16 +54,24 @@ export async function index(
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const response = await fetch(
+      `https://ui-avatars.com/api/?name=${username}`,
+    );
+
+    const profilePicture = await response.json();
+
     const createdUser = await prisma.user.create({
       data: {
         email: email,
         password: hashedPassword,
         username: username,
+        avatar: profilePicture,
       },
       select: {
         userId: true,
         username: true,
         email: true,
+        avatar: true,
       },
     });
 
@@ -67,6 +79,7 @@ export async function index(
       email: createdUser.email,
       username: createdUser.username,
       userId: createdUser.userId,
+      avatar: createdUser.avatar,
     };
 
     const token = jwt.sign(payload, SECRET);
@@ -80,6 +93,7 @@ export async function index(
       },
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       success: false,
       message: 'Internal Server Error',

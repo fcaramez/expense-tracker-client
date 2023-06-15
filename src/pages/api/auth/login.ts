@@ -1,6 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from 'next';
-import { prisma } from '~/server/db';
-import { type ApiResponse } from '~/utils';
+import { prisma } from '@/server/db';
+import { type ApiResponse } from '@/utils';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 
@@ -13,7 +13,7 @@ interface RequestBody extends NextApiRequest {
 
 const SECRET = process.env.TOKEN_SECRET as string;
 
-export async function index(
+export default async function index(
   req: RequestBody,
   res: NextApiResponse<ApiResponse>,
 ) {

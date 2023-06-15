@@ -4,22 +4,27 @@ import {
   type ThemeConfig,
   extendTheme,
 } from '@chakra-ui/react';
-import SideBar from './components/navbar';
+import SideBar from '../components/sidebar';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const config: ThemeConfig = {
   initialColorMode: 'light',
   useSystemColorMode: false,
 };
 
+const queryClient = new QueryClient();
+
 const theme = extendTheme({ config });
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider theme={theme}>
-      <SideBar>
-        <Component {...pageProps} />
-      </SideBar>
-    </ChakraProvider>
+    <QueryClientProvider client={queryClient}>
+      <ChakraProvider theme={theme}>
+        <SideBar>
+          <Component {...pageProps} />
+        </SideBar>
+      </ChakraProvider>
+    </QueryClientProvider>
   );
 };
 
