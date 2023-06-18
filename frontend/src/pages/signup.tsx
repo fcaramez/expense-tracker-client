@@ -44,7 +44,7 @@ export default function SignupPage() {
       message,
       data: apiResponse,
       success,
-    } = await fetcher('/api/auth/signup', {
+    } = await fetcher(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/signup`, {
       body: JSON.stringify(data),
       method: 'POST',
       headers: {
